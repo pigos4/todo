@@ -10,6 +10,9 @@
     
     "start": "npm run dev:api & npm run dev:client"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pigos4/todo.git"
