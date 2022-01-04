@@ -1,35 +1,24 @@
 {
-  "name": "todo",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
-
-  "dependencies": {
-    "concurrently": "^4.0.1",
-    "rimraf": "^2.6.2"
-  },
-  
-    "scripts": {
-      "build": "concurrently \"cd todocli && npm run build\" \"cd server && npm run build\"",
-      "clean": "concurrently \"rimraf node_modules\" \"cd todocli && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
-      "heroku-postbuild": "npm run build",
-      "install": "(cd todocli && npm install) && (cd server && npm install)",
-      "start": "concurrently \"cd todocli && npm run start\" \"cd server && npm run start\"",
-      "start:prod": "cd server && npm run start"
-    }
-
-  ,
-  "engines": {
-    "node": "16.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pigos4/todo.git"
+  "main": "index.ts",
+  "scripts": {
+    "serve": "nodemon index.ts",
+    "start": "nodemon index.ts"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/pigos4/todo/issues"
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
   },
-  "homepage": "https://github.com/pigos4/todo#readme"
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "pouchdb": "^7.2.2"
+  }
 }
