@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:api": "npm start --prefix server",
-    "dev:client": "cd todocli && npm run start",
+    "dev:api": "cd server && npm install && npm run start",
+    "dev:client": "cd todocli && npm install && npm run start",
     
     "start": "npm run dev:api & npm run dev:client"
   },
