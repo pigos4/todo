@@ -6,34 +6,15 @@ const app = express();
 const port = 4000;
 const dbMethods = require("./database/databasepouchdb");
 const proxy = require("http-proxy-middleware");
-//require("./routes")(app);
-module.exports = function (app:any) {
-  // add other server routes to path array
-  app.use(proxy(["/api"], { target: "http://localhost:4000" }));
-};
-app.use(express.static(path.join(__dirname, "build")));
 
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
-if (
-  process.env.NODE_ENV === "production" ||
-  process.env.NODE_ENV === "staging"
-) {
-  // Add production middleware such as redirecting to https
-
-  // Express will serve up production assets i.e. main.js
-  app.use(express.static(__dirname + "/client/build"));
-  // If Express doesn't recognize route serve index.html
-  const path = require("path");
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
 app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use(express.static(path.join(__dirname, "build")));
+
+
 
 app.get("/getrequest", function (req, res) {
   dbMethods.allDocs().then((doc: any) => {
