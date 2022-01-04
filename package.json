@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "serve": "nodemon index.ts",
-    "build":"cd todocli && npm run build",
+    "build":"npm run build",
     "start": "nodemon index.ts & (cd todocli && npm start)"
   },"engines": {
     "node": "14.x"
