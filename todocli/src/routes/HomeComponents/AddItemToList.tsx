@@ -22,6 +22,7 @@ export default function AddItemToList() {
     text: any;
     message: any;
   }
+  console.log(setSubm);
   return (
     <form>
       <label className="message">

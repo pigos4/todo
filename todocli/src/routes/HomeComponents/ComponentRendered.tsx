@@ -28,7 +28,7 @@ const DeleteItem = (id: any) => {
 
   return <button onClick={() => deleteItemAxios(id)}>Delete</button>;
 };
-export default ({ message }: AppProps) => {
+let x=({ message }: AppProps) => {
   let messagesRendered = message.dataFromServer.map((data, i) => (
     <p key={i} id={data.id} className="items">
       <span className="messageToRender">messsage:</span>
@@ -40,3 +40,4 @@ export default ({ message }: AppProps) => {
   ));
   return <>{messagesRendered}</>;
 };
+export default x;
