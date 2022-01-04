@@ -6,16 +6,17 @@ import {
   useNavigate,
   useLocation,
   Navigate,
-  Outlet
+  Outlet,
 } from "react-router-dom";
 import { fakeAuthProvider } from "./auth";
 import { Home } from "./routes/Home";
+import './App.css'
 
 export default function App() {
   return (
     <AuthProvider>
       <Routes>
-        <Route element={<Layout />}>
+        <Route element={<Layout />} >
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route
@@ -31,13 +32,10 @@ export default function App() {
     </AuthProvider>
   );
 }
-
 function Layout() {
   return (
-    <div>
-      <AuthStatus />
-
-      <ul>
+    <div className="menu">
+      <ul >
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -45,7 +43,7 @@ function Layout() {
           <Link to="/protected">Todo</Link>
         </li>
       </ul>
-
+      <AuthStatus />
       <Outlet />
     </div>
   );
@@ -64,7 +62,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
 
   let signin = (newUser: string, callback: VoidFunction) => {
     return fakeAuthProvider.signin(() => {
-      console.log(newUser)
+      console.log(newUser);
       setUser(newUser[0]);
       callback();
     });
@@ -91,7 +89,7 @@ function AuthStatus() {
   let navigate = useNavigate();
 
   if (!auth.user) {
-    return <p>You are not logged in.</p>;
+    return <p className="logged">You are not logged in.</p>;
   }
 
   return (
@@ -125,7 +123,7 @@ function RequireAuth({ children }: { children: JSX.Element }) {
 
 function LoginPage() {
   let navigate = useNavigate();
-  let location:any = useLocation();
+  let location: any = useLocation();
   let auth = useAuth();
 
   let from = location.state?.from?.pathname || "/";
@@ -134,11 +132,11 @@ function LoginPage() {
     event.preventDefault();
 
     let formData = new FormData(event.currentTarget);
-    
+
     let username = formData.get("username") as string;
     let password = formData.get("password") as string;
-    let userData:any=[password,username]
-console.log(password,'formdata')
+    let userData: any = [password, username];
+    console.log(password, "formdata");
     auth.signin(userData, () => {
       // Send them back to the page they tried to visit when they were
       // redirected to the login page. Use { replace: true } so we don't create
@@ -166,8 +164,6 @@ console.log(password,'formdata')
     </div>
   );
 }
-
-
 
 function ProtectedPage() {
   return <h3>Protected</h3>;

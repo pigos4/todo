@@ -19,8 +19,8 @@ const dateteSingleItem=async (id:string)=>{
   try {
     const doc = await db.get(id);
     
-    const response = await db.remove(doc._id, doc._rev);
-    return response
+    return await db.remove(doc._id, doc._rev);
+    
   } catch (err) {
     console.log(err);
   }
@@ -29,12 +29,7 @@ const dateteSingleItem=async (id:string)=>{
 
 const allDocs = async () => {
   try {
-    console.log(
-      db.allDocs({
-        include_docs: true,
-        attachments: true,
-      })
-    );
+    
     return await db.allDocs({
       include_docs: true,
       attachments: true,

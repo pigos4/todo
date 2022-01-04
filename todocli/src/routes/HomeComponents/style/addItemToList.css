@@ -1,0 +1,23 @@
+form{
+    display: flex;flex-direction: column;
+}
+.message{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.message span{
+padding: 2vw;    
+}
+.text{
+     display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0vw 0vw 4vw 0vw;
+}
+.text span{
+padding: 2vw;    
+}
+.submit{
+   padding: 0vw 0vw 5vw 0vw;
+}

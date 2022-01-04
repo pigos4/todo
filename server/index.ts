@@ -21,7 +21,7 @@ app.get("/getrequest", function (req, res) {
   });
 });
 app.post("/postitem", (req: any, res: any) => {
-  dbMethods.post(req.body).then((x: any) => res.send(x));
+  dbMethods.post(req.body).then((x: any) => res.send(x.id));
 });
 
 app.post("/deleteitem", (req: any, res: any) => {
@@ -29,5 +29,5 @@ app.post("/deleteitem", (req: any, res: any) => {
 });
 
 app.listen(port, () => {
-  console.log(`Timezones by location application is running on port ${port}.`);
+  console.log(`App listen on port ${port}.`);
 });
