@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/index.js",
+
+  "dependencies": {
+    "concurrently": "^4.0.1",
+    "rimraf": "^2.6.2"
+  },
   
     "scripts": {
       "build": "concurrently \"cd todocli && npm run build\" \"cd server && npm run build\"",
