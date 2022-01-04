@@ -10,9 +10,9 @@
   },
   
     "scripts": {
-      "build": "concurrently \"cd todocli && npm run build\" \"cd server && npm run build\"",
+      "build": "concurrently \"cd todocli && npm run build\"",
       "clean": "concurrently \"rimraf node_modules\" \"cd todocli && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
-      "heroku-postbuild": "npm run build",
+      
       "install": "(cd todocli && npm install) && (cd server && npm install)",
       "start": "concurrently \"cd todocli && npm run start\" \"cd server && npm run start\"",
       "start:prod": "cd server && npm run start"
