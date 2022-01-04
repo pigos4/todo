@@ -1,0 +1,23 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:api": "npm start --prefix server",
+    "dev:client": "cd todocli && npm run start",
+    
+    "start": "npm run dev:api & npm run dev:client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pigos4/todo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pigos4/todo/issues"
+  },
+  "homepage": "https://github.com/pigos4/todo#readme"
+}
