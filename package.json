@@ -5,21 +5,18 @@
   "main": "server/index.js",
 
   "dependencies": {
-    "concurrently": "^4.0.1",
-    "rimraf": "^2.6.2"
+    "concurrently": "^4.0.1"
   },
   
     "scripts": {
       "build": "concurrently \"cd todocli && npm run build\"",
-      "clean": "concurrently \"rimraf node_modules\" \"cd todocli && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
-      
       "install": "(cd todocli && npm install) && (cd server && npm install)",
       "start": "concurrently \"cd todocli && npm run start\" \"cd server && npm run start\"",
       "start:prod": "cd server && npm run start"
     }
 
   ,
-  "proxy": "http://localhost:4000"
+  "proxy": "http://127.0.0.1:4000"
 ,
   "engines": {
     "node": "16.x"

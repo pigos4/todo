@@ -1,6 +1,7 @@
 import express from "express";
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const path = require("path");
 const app = express();
 const port = 4000;
 const dbMethods = require("./database/databasepouchdb");
@@ -10,7 +11,11 @@ module.exports = function (app:any) {
   // add other server routes to path array
   app.use(proxy(["/api"], { target: "http://localhost:4000" }));
 };
+app.use(express.static(path.join(__dirname, "build")));
 
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 if (
   process.env.NODE_ENV === "production" ||
   process.env.NODE_ENV === "staging"
