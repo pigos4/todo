@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "heroku-prebuild": "cd todocli && npm install && npm run build && cd .. && npm install",
-    "start": "node index.js & (cd todocli && npm start)"
+    "start": "node index.js"
   },"engines": {
     "node": "14.x"
   },
