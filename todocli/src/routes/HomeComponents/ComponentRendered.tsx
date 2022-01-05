@@ -1,5 +1,5 @@
 import  { useContext } from "react";
-import axios from "axios";
+import ax from "../axios/axios";
 import { ThemeContext } from "../Home";
 import './style/componentRender.css';
 
@@ -19,7 +19,7 @@ const DeleteItem = (id: any) => {
   let ref: any = useContext(ThemeContext);
 
   const deleteItemAxios = (idd: any) => {
-    axios.post("deleteitem", idd)
+    ax.post("deleteitem", idd)
       .then((x: any) => {
         ref.reload[1](`${idd.id} Deleted`);
       })
