@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import ax from "../axios/axios";
+import axios from "axios";
 import "./style/addItemToList.css";
 import { ThemeContext } from "../Home";
 export default function AddItemToList() {
@@ -12,7 +12,7 @@ export default function AddItemToList() {
   const [subm, setSubm] = useState(true);
   useEffect(() => {}, [subm]);
   function sendPostRequest(data: object) {
-    ax.post("postitem", data)
+    axios.post("postitem", data)
       .then((x: any) => {
         ref.reload[1](`${x.data} Added`);
       })
